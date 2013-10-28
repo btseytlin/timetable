@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  time: 2013-10-01 15:31:53
+  room: MyString
+  teacher: MyString
+  subject: MyString
+  day: MyString
+  group: 
+
+two:
+  time: 2013-10-01 15:31:53
+  room: MyString
+  teacher: MyString
+  subject: MyString
+  day: MyString
+  group: 
