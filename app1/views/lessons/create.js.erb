@@ -1,0 +1,18 @@
+$().ready(function(){
+	var form = '<%= form_for([@lesson.group, @lesson], remote: true) do |f| %>'
+	var tr = [,'<tr',
+			'id="<%= @lesson.id%>"', '>',
+				'<td><%= f.text_field :time %></td>',
+				'<td><%= f.text_field :day %></td>',
+				'<td><%= f.text_field :subject %></td>',
+				'<td><%= f.text_field :teacher %></td>',
+				'<td><%= f.text_field :room %></td>',
+				'<td><%= f.submit "Update"%></td>',
+				'<td><%= link_to "Delete", [@lesson.group, @lesson], remote: true,method: :delete%></td>',
+			'</tr>'].join(' ')
+	var fin = "<%end%>"
+	$('#lessons > tbody').append(form)
+	$('#lessons > tbody').append(tr)
+	
+	$('#lessons > tbody').append(fin)
+})

@@ -1,0 +1,25 @@
+<%= @group.name %>
+<table>
+
+	<% @days.each do |day|%>
+		<tr>
+			<td>
+				<h3><%=day%></h3>
+			</td>
+			<td>
+				<table>
+					<% @day_array = @group.lessons.find_all{|lesson| lesson.day.include?(day)} %>
+					<% @day_array.each do |lesson| %>
+						<tr>
+							<td><%= parsetime lesson.time%></td>	
+							<td><%= lesson.subject %></td>
+							<td><%= lesson.teacher %></td>
+							<td><%= lesson.room %></td>
+						</tr>
+					<%end%>
+				</table>
+			</td>
+		</tr>
+	<%end%>
+</table>
+<%= link_to 'Back ', :root %>
