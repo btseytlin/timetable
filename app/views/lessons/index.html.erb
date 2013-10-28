@@ -1,0 +1,12 @@
+<ul>
+<% @lessons.each do |lesson| %>
+	<li>
+		<%= lesson.time %>
+		<%= lesson.day %> 
+		<%= lesson.room %> 
+		<%= lesson.subject %> 
+		<%= lesson.teacher %> 
+		<%= lesson.group.name %>
+	</li>
+<% end %>
+</ul>

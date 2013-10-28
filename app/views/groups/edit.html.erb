@@ -1,0 +1,43 @@
+
+<%= @group.name %>
+<div class='notice'></div>
+<table id="lessons">
+	<tr>
+		<td>Time</td>
+		<td>Day</td>
+		<td>Subject</td>
+		<td>Teacher</td>
+		<td>Room</td>
+
+	</tr>
+	<% @group.lessons.each do |lesson| %>
+		
+		<%= form_for([@group, lesson], remote: true) do |f| %>
+			<tr id='<%= lesson.id%>' >
+				<td><%= f.text_field :time %></td>
+				<td><%= f.text_field :day %></td>
+				<td><%= f.text_field :subject %></td>
+				<td><%= f.text_field :teacher %></td>
+				<td><%= f.text_field :room %></td>
+				<td><%= f.submit 'Update'%></td>
+				<td><%= link_to 'Delete', [lesson.group, lesson], remote: true,method: :delete%></td>
+			</tr>
+		<%end%>
+	<%end%>
+</table>
+<table>	
+	<tr>
+		<%= form_for([@group, @group.lessons.build], remote: true) do |f|%>
+			<td><%= f.text_field :time %></td>
+			<td><%= f.text_field :day %></td>
+			<td><%= f.text_field :subject %></td>
+			<td><%= f.text_field :teacher %></td>
+			<td><%= f.text_field :room %></td>
+				
+			<td><%= f.submit 'Add new lesson' %></td>
+		<%end%>
+	</tr>
+</table>
+
+<%= link_to 'Save all','#'%>
+<%= link_to 'Back to '+ @group.name, @group %>
