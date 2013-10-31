@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
 	end
 	def show 
 		@group = Group.find(params[:id])
-		@days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+		
 	end
 	def edit
 		@group = Group.find(params[:id])

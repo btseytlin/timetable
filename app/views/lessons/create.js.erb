@@ -1,18 +1,45 @@
-$().ready(function(){
-	var form = '<%= form_for([@lesson.group, @lesson], remote: true) do |f| %>'
-	var tr = [,'<tr',
-			'id="<%= @lesson.id%>"', '>',
-				'<td><%= f.text_field :time %></td>',
-				'<td><%= f.text_field :day %></td>',
-				'<td><%= f.text_field :subject %></td>',
-				'<td><%= f.text_field :teacher %></td>',
-				'<td><%= f.text_field :room %></td>',
-				'<td><%= f.submit "Update"%></td>',
-				'<td><%= link_to "Delete", [@lesson.group, @lesson], remote: true,method: :delete%></td>',
-			'</tr>'].join(' ')
-	var fin = "<%end%>"
-	$('#lessons > tbody').append(form)
-	$('#lessons > tbody').append(tr)
-	
-	$('#lessons > tbody').append(fin)
-})
+  var form, fin, tr;
+
+    <% if @lesson.id %>
+      form = '<%= form_for([@lesson.group, @lesson], remote: true) do |f| %>'
+      tr = ['<tr ',
+          'id="<%= @lesson.id%>"', '>',
+            '<td><div class="form-ui default"><%= f.text_field :time, class:"form-input" %></div></td>',
+            '<td><div class="form-ui default"><%= f.text_field :day, class:"form-input" %></div></td>',
+            '<td><div class="form-ui default"><%= f.text_field :subject, class:"form-input" %></div></td>',
+            '<td><div class="form-ui default"><%= f.text_field :teacher, class:"form-input" %></div></td>',
+            '<td><div class="form-ui default"><%= f.text_field :room, class:"form-input" %></div></td>',
+            '<td><%= f.submit "Update"%></td>',
+            '<td><div class="btn-con"><%= link_to "Delete", [@lesson.group, @lesson], remote: true, method: :delete%></div></td>',
+          '</tr>'].join(' ')
+       fin = "<%end%>"
+    <% else %>
+      form = '<%= form_for([@lesson.group, @lesson], remote: true) do |f| %>';
+       tr = ['<tr ',
+        'class="form-error" ', '>',
+          '<td><div class="form-ui failure"><input class="form-input dummy" disabled="disabled"></input></div></td>',
+          '<td><div class="form-ui failure"><input class="form-input dummy" disabled="disabled"></input></div></td>',
+          '<td><div class="form-ui failure"><input class="form-input dummy" disabled="disabled"></input></div></td>',
+          '<td><div class="form-ui failure"><input class="form-input dummy" disabled="disabled"></input></div></td>',
+'<td><div class="form-ui failure"><input class="form-input dummy" disabled="disabled"></input></div></td>',
+        '<td><div class="form-message failure"><span>Failed</span></div></td>',
+        '</tr>'].join(' ');
+       fin = "<%end%>";
+    <% end %>
+
+    
+$('#lessons > tbody').append(form)
+$('#lessons > tbody').append(tr)
+$('#lessons > tbody').append(fin)
+<% if @lesson.id %>
+  ReplaceCode()
+  $('#'+'<%=@lesson.id%>').hide().fadeIn(500)
+<% else %>
+  $('.form-error').hide().fadeIn(500)
+  setTimeout(function(){$('.form-error').fadeOut(500, function(){$(this).remove()}) }, 3000)
+<% end %>
+
+  
+ $('.btn-confirm').click(function () {
+   BtnConfirm($(this)) })
+  

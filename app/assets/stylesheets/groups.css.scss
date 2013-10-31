@@ -1,3 +1,65 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  text-align:center;
+}
+.container > div{
+  
+  display:inline-block;
+  text-align:left;
+}
+.days {
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
+}
+
+.day-box {
+  display:inline-block;
+  
+  border: 2px solid #276FA6;
+  min-height:195px;
+  -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  margin-bottom:10px;
+  overflow:hidden;
+  
+}
+h2 {
+  text-align:center;
+}
+.day-box h3 {
+  width:100%;
+  text-align:center;
+  margin-bottom: 0;
+  margin-top: 0;
+  border-bottom:3px solid #155688;
+  background-color:#A5CAE7;
+  color:#333;
+}
+.day-box table {
+   text-align:center;
+   border-collapse:collapse;
+  
+}
+.day-box td {
+  width:100px;
+}
+.day-box tr, .day-box td {
+  padding:4px;
+  border-bottom:1px solid #155688;
+  
+}
+.day-box .head,.day-box .head td  {
+  margin-bottom:5px;
+  border-left:1px solid #155688;
+  border-right:1px solid #155688;
+  font-weight:bold;
+  background-color:#DAE1E8;
+}
+.head {
+ text-align:center; 
+}

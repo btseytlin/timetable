@@ -11,7 +11,15 @@
  *= require_self
  *= require_tree .
  */
-
+body {
+   font-family:'Arial', 'Times New Roman'; 
+ 
+   background:#F5F5FF; 
+}
+a {
+   text-decoration:none;
+   color:black;
+}
 .form-ui {
     display:inline-block;
     background:none;
@@ -25,7 +33,11 @@
 .form-input {
     border:none;
     color:#121212;
-    
+    width:150px;   
+    background:none;
+}
+.dummy{
+    width:100%;
 }
 .success {
     border-color:green;
@@ -33,9 +45,90 @@
 }
 .failure {
     border-color:red;
-    
+     background-color: rgb(235, 235, 228);
 }
-input:focus {
+input:focus, button {
     box-shadow:none;
     outline:none;
+    border:none;
 }
+button {
+    border:1px solid #B7B7B7;
+}
+.btn-done, .btn-war, .btn-warning, .btn-con, .btn-confirm, btn, input[type='submit'], .form-message, .ui-link, .ui-list  {
+    font-family:Arial;
+    background: #EEE;
+    width: 120px;
+    height: 28px;
+    overflow:hidden;
+    cursor: pointer;
+    border: 1px solid #B7B7B7;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  
+}
+.ui-list {
+    width: 90px;
+    height: 28px;
+    border: 1px solid #B7B7B7;
+    background: #DDF6F8;
+}
+.form-message {
+   text-align:center;
+   background-color:#BF3030;
+}
+.form-message span {
+    position:relative;
+    color:white;
+    top:19%;
+}
+input[type='submit'] {
+    box-shadow:none;
+    outline:none;
+    border:none;
+    border: 1px solid #B7B7B7;
+}
+
+.button-default {
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.button-text {
+    position:absolute;
+    top:19%;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    color:black;
+}
+.button-overflow, .button-prompt {
+    width:100%;
+    height: 28px;
+    position:relative;
+    top: -100px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.button-overflow-text, .button-prompt-text {
+    position:absolute;
+    top:19%;
+    width:100%;
+    text-align:center;
+}
+.button-overflow-text, .button-overflow-text a, .button-prompt-text, .button-prompt-text a {
+    color:white;
+    text-decoration:none;
+}
+.button-overflow {
+    background: green;
+}
+.btn-confirm .button-prompt {
+    background:#FFB800!important;
+}
+.btn-warning .button-prompt {
+    background:red;
+}
+

@@ -1,25 +1,31 @@
-<%= @group.name %>
-<table>
 
+<% @days = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"] %>
+<div class='days'>
+  <h2><%= @group.name %></h2>
 	<% @days.each do |day|%>
-		<tr>
-			<td>
-				<h3><%=day%></h3>
-			</td>
-			<td>
-				<table>
-					<% @day_array = @group.lessons.find_all{|lesson| lesson.day.include?(day)} %>
-					<% @day_array.each do |lesson| %>
-						<tr>
-							<td><%= parsetime lesson.time%></td>	
-							<td><%= lesson.subject %></td>
-							<td><%= lesson.teacher %></td>
-							<td><%= lesson.room %></td>
-						</tr>
-					<%end%>
-				</table>
-			</td>
-		</tr>
+  <div id='<%=day%>' class='day-box'>
+   <h3><%=day%></h3>
+    <table>
+                <tr class='head'>
+                    <td>Время</td>	
+ 
+                    <td>Аудитория</td>
+                    <td>Предмет</td>
+                    <td>Преподаватель</td>
+                </tr>
+                <% @day_array = @group.lessons.find_all{|lesson| lesson.day.include?(day)} %>
+                <% @day_array.each do |lesson| %>
+                  <tr>
+                    <td><%= parsetime lesson.time%></td>	
+                    <td><%= lesson.room %></td>
+                    <td><%= lesson.subject %></td>
+                    <td><%= lesson.teacher %></td>
+                    
+                  </tr>
+                <%end%>
+    </table>
+  </div>
 	<%end%>
-</table>
-<%= link_to 'Back ', :root %>
+<br/>
+  <button class='ui-link'><%= link_to 'Назад ', :root %></button>
+</div>

@@ -15,9 +15,206 @@
 //= require_tree .
 
 $().ready(function(){
-    checkForms();
+    checkForms()
     setInterval(checkForms, 5000);
+    ReplaceCode();
+
+    $('.btn-done').click(function () {
+        BtnDone($(this));
+    });
+
+    $('.btn-confirm').click(function () {
+        BtnConfirm($(this));
+    });
+
+    $('.btn-warning').click(function () {
+        BtnConfirm($(this));
+    });
+
 });
+
+function BtnWarning(elem) {
+    var $this = elem;
+    if ($this.data('animation') == 'true') {
+        return false
+    }
+    var $default = $this.find('.button-default');
+    var $prompt = $this.find('.button-prompt');
+    var $overflow = $this.find('.button-overflow');
+
+    if ($this.data('button') == 'closed') {
+        $default.fadeOut(10);
+        $this.data('animation', 'true')
+        $prompt.animate({
+            top: '0'
+        }, 500, 'linear', function () {
+            $this.data('animation', 'false')
+        });
+
+        $this.data('button', 'prompting');
+    } else if ($this.data('button') == 'prompting') {
+        $prompt.animate({
+            top: '-100px'
+        }, 100, function () {
+            $this.data('animation', 'false')
+        })
+        $prompt.toggle()
+        $this.data('animation', 'true')
+        $overflow.animate({
+            top: '0'
+        }, 500, 'linear', function () {
+            $this.data('animation', 'false')
+        })
+        dellay
+        $this.data('button', 'open');
+
+        setTimeout(function () {
+            $this.data('animation', 'true')
+            $overflow.animate({
+                top: '-100px'
+            }, 500, function () {
+                $this.data('animation', 'false')
+                $default.fadeIn(100);
+                $prompt.toggle()
+                $this.data('button', 'closed');
+            })
+        }, 2000)
+    }
+}
+
+function BtnConfirm(elem) {
+    var $this = elem;
+    if ($this.data('animation') == 'true') {
+        return false
+    }
+    var $default = $this.find('.button-default');
+    var $prompt = $this.find('.button-prompt');
+    var $overflow = $this.find('.button-overflow');
+
+    if ($this.data('button') == 'closed') {
+        $default.fadeOut(10);
+        $this.data('animation', 'true')
+        $prompt.animate({
+            top: '0'
+        }, 500, 'linear', function () {
+            $this.data('animation', 'false')
+        });
+
+        $this.data('button', 'prompting');
+    } else if ($this.data('button') == 'prompting') {
+        $prompt.animate({
+            top: '-100px'
+        }, 100, function () {
+            $this.data('animation', 'false')
+        })
+        $prompt.toggle()
+        $this.data('animation', 'true')
+        $overflow.animate({
+            top: '0'
+        }, 500, 'linear', function () {
+            $this.data('animation', 'false')
+        })
+
+        $this.data('button', 'open');
+
+        setTimeout(function () {
+            $this.data('animation', 'true')
+            $overflow.animate({
+                top: '-100px'
+            }, 500, function () {
+                $this.data('animation', 'false')
+                $default.fadeIn(100);
+                $prompt.toggle()
+                $this.data('button', 'closed');
+            })
+        }, 2000)
+    }
+}
+
+function BtnDone(elem) {
+    var $this = elem;
+    if ($this.data('animation') == 'true') {
+        return false
+    }
+    var $default = $this.find('.button-default');
+    var $overflow = $this.find('.button-overflow');
+
+    if ($this.data('button') == 'closed') {
+        $default.fadeOut(10);
+        $this.data('animation', 'true')
+        $overflow.animate({
+            top: '0'
+        }, 500, 'linear', function () {
+            $this.data('animation', 'false')
+        });
+
+        $this.data('button', 'open');
+
+        setTimeout(function () {
+            $this.data('animation', 'true')
+            $overflow.animate({
+                top: '-100px'
+            }, 500, function () {
+                $this.data('animation', 'false')
+                $default.fadeIn(100);
+            })
+
+            $this.data('button', 'closed');
+        }, 2000)
+    }
+
+}
+
+function ReplaceCode() {
+    var $word, $link, $linkword;
+    $('.btn-war').each(function () {
+
+        $link = $(this).find('a').attr("href");
+
+        $linkword = $(this).find('a').text();
+        $(this).find('a').html('');
+        $word = $(this).text();
+
+        $(this).empty()
+            .attr("class", "btn-warning")
+            .data('button', 'closed')
+            .append('<div class="button-default"> <span class="button-text">' + $word + '</span></div>')
+            .append('<div class="button-prompt"><div class="button-prompt-text"><a href="' + $link + '">' + $linkword + '</a></div></div>')
+            .append('<div class="button-overflow"><div class="button-overflow-text">Done</div> </div>');
+    });
+
+    $('.btn-con').each(function () {
+        
+        $word = $(this).find('a').html();
+        $(this).find('a').text('Confirm?');
+        $link = $(this).html()
+        
+        
+        
+
+        $(this).empty()
+            .attr("class", "btn-confirm")
+            .data('button', 'closed')
+            .append('<div class="button-default"> <span class="button-text">' + $word + '</span></div>')
+            .append('<div class="button-prompt"><div class="button-prompt-text">' + $link +'</div></div>')
+            .append('<div class="button-overflow"><div class="button-overflow-text">Done</div> </div>');
+
+    });
+
+
+
+    $('.btn').each(function () {
+        $link = $(this).find('a').attr("href");
+
+        $linkword = $(this).find('a').text();
+
+        $(this).empty()
+            .attr("class", "btn-done")
+            .data('button', 'closed')
+            .append('<div class="button-default"><a class="button-text" href="' + $link + '">' + $linkword + '</a></span></div>')
+            .append('<div class="button-overflow"><div class="button-overflow-text">Done</div> </div>');
+    });
+}
 
 function checkForms() {
     $('.form-input').each(function(){
@@ -55,3 +252,4 @@ function checkForms() {
     })   ;
   
 }
+
