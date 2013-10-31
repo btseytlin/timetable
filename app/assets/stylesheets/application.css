@@ -11,3 +11,31 @@
  *= require_self
  *= require_tree .
  */
+
+.form-ui {
+    display:inline-block;
+    background:none;
+    border:2px solid #4479D4;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding:3px;   
+    box-sizing: border-box;
+}
+.form-input {
+    border:none;
+    color:#121212;
+    
+}
+.success {
+    border-color:green;
+    
+}
+.failure {
+    border-color:red;
+    
+}
+input:focus {
+    box-shadow:none;
+    outline:none;
+}

@@ -13,3 +13,45 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$().ready(function(){
+    checkForms();
+    setInterval(checkForms, 5000);
+});
+
+function checkForms() {
+    $('.form-input').each(function(){
+     
+        switch($(this).data('format')){ 
+           
+            case 'email':
+                var email = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+                
+                if ($(this).val()){
+                    if(email.test($(this).val())){
+                        $(this).parent().removeClass('failure');
+                        $(this).parent().addClass('success');
+                    }
+                    else {
+                        $(this).parent().removeClass('success');
+                        $(this).parent().addClass('failure');
+                    }
+                } 
+                else {
+                     $(this).parent().removeClass('success');
+                     $(this).parent().removeClass('failure');
+                }
+                break;
+             
+             default:
+                if ($(this).val()){
+                    $(this).parent().addClass('success');
+                }
+                else {
+                    $(this).parent().removeClass('success');
+                } 
+                
+        }
+    })   ;
+  
+}
