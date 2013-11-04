@@ -7,7 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div class='top-panel'>
+    <ul class='nav'>
+      <li><%= link_to 'На главную',:root %></li>
+      <li><%= link_to 'О проекте',:root %></li>
+    </ul>
+    <div class='search-container'>
+        <%= form_tag('/search', method: "get", remote: true) do %>
+          <%= label_tag(:search, '') %>
+               <div class='form-ui default'>
+              <%= text_field_tag(:search, nil, class: 'form-input-search') %>
+              </div>
+      <%= submit_tag("Искать!", class: 'search-submit') %>
+        <% end %>
+      
+      <table class='search-results'>
+      </table>
+    </div>
+  </div>
 <%= yield %>
 
 </body>
