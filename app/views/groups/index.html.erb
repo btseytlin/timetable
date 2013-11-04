@@ -1,8 +1,11 @@
-<ul>
-<% @groups.each do |group| %>
-	<li>
-		<button class='ui-list'><%= link_to  group.name , group %></button>
-	</li>
-<% end %>
-</ul>
+<div class='container'>
+    <ul>
+  <% @groups.each do |group| %>
+    <li>
+      <button class='ui-list'><%= link_to  group.name , group %></button>
+    </li>
+  <% end %>
+  </ul>
 
+
+</div>
