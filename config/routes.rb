@@ -4,7 +4,7 @@ Timetable::Application.routes.draw do
 		resources :lessons
 	end
 	root :to => 'groups#index'
-	match 'search' => 'search#index'
+  match 'search' => 'search#search'
 	
   # The priority is based upon order of creation:
   # first created -> highest priority.
