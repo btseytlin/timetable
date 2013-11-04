@@ -13,12 +13,16 @@
  */
 body {
    font-family:'Arial', 'Times New Roman'; 
- 
+    color:#121212;
    background:#F5F5FF; 
+    margin:0;
 }
 a {
    text-decoration:none;
    color:black;
+}
+ul {
+   list-style:none; 
 }
 .form-ui {
     display:inline-block;
@@ -50,7 +54,7 @@ a {
 input:focus, button {
     box-shadow:none;
     outline:none;
-    border:none;
+    
 }
 button {
     border:1px solid #B7B7B7;
@@ -132,3 +136,98 @@ input[type='submit'] {
     background:red;
 }
 
+.search-container {
+    max-height:500px;
+    width:360px;
+    position:absolute;
+    right:10px;
+    top:10%;
+    
+    text-align:center;  
+    
+}
+.search-container  .form-ui {
+    width:70%;
+    
+    background:white;  
+    border:2px solid #A5CAE7;
+    
+}
+.search-submit{
+   width:23%!important; 
+}
+.search-container > table{
+  border:1px solid #155688;
+  border-collapse:collapse;
+  position:absolute;
+  right:10px;
+  top:35px;
+  background:white;
+  
+}
+.search-container > table tr, .search-container > table td {
+  padding:1px;
+  border-bottom:1px solid #155688;
+}
+.search-container .form-input-search {
+    border:none;
+    color:#121212;
+  
+    background:none;  
+    width:100%;
+  }
+
+.search-container .head,.search-container .head td  {
+  margin-bottom:2px;
+  border-top:1px solid #155688;
+  border-left:1px solid #155688;
+  border-right:1px solid #155688;
+  font-weight:bold;
+  background-color:#DAE1E8;
+}
+
+.top-panel {
+   width:100%;
+   background:#4479D4;
+   position:relative;
+   top:0;
+   height:40px;
+}
+.nav {
+    list-style:none; 
+    margin:0;
+    height:100%;
+    display:inline-block;
+    padding:0;
+    position:relative;
+    left:370px;
+}
+.nav li {
+    display:inline-block;
+    border-left:2px solid white;
+    border-right:2px solid white;
+    padding:0 10px;
+    margin:0;
+    height:100%;
+    width:100px;
+    text-align:center;
+    vertical-align:middle;
+  
+    cursor:pointer;
+}
+.nav li:hover{
+    background:white;
+    border-left:2px solid #4479D4;
+    border-right:2px solid #4479D4;
+}
+.nav li a:hover{
+    color:#4479D4;
+}
+.nav li a {
+    color:white;
+    vertical-align:middle;
+    display:block;
+    height:75%;
+    padding-top:10px;
+    font-weight:bold;
+}
