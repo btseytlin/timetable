@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Timetable</title>
+
+  <title><%= yield(:title) %></title>
+  
+ <meta name= 'description',  content="<%= yield(:metadesc) %>" >
+
+  <meta name= 'keywords',  content= "<%= yield(:metawords) %>" >
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
