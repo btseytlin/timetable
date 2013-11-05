@@ -1,3 +1,6 @@
+<% content_for :title, 'Расписание ' + @group.name  %>
+<% content_for :metadesc, 'Расписание ' + @group.name  %>
+<% content_for :metawords, @group.name + ', занятия, электронное расписание, веб расписание' %>
 
 <% @days = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"] %>
 <div class='days'>

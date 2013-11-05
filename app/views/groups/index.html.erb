@@ -1,11 +1,56 @@
+<% content_for :title, 'Электронное Расписание МАИ'  %>
+<% content_for :metadesc, 'Электронное расписание 4 факультета маи' %>
+<% content_for :metawords, 'МАИ, ФРЭЛА, 4 факультет, электронное расписание, веб расписание' %>
+
 <div class='container'>
-    <ul>
-  <% @groups.each do |group| %>
-    <li>
-      <button class='ui-list'><%= link_to  group.name , group %></button>
-    </li>
-  <% end %>
+  <div class='wrap'>
+  <div class='year1'>
+    <h3>1 курс:</h3>
+    <ul class='group-list'>
+      <%@groups.each do |group|%>
+      <% if group.name.slice(3, 1) == '1' %>
+            <li>
+              <button class='ui-list'><%= link_to  group.name , group %></button>
+            </li>
+      <%end %>
+    <%end%>
+    </ul>
+  </div>
+  <div class='year2'>
+  <h3>2 курс:</h3>
+  <ul class='group-list'>
+    <%@groups.each do |group|%>
+    <% if group.name.slice(3, 1) == '2' %>
+          <li>
+            <button class='ui-list'><%= link_to  group.name , group %></button>
+          </li>
+    <%end %>
+    <%end%>
+    </ul>
+  </div>
+   <div class='year3'>
+    <h3>3 курс:</h3>
+    <ul class='group-list'>
+    <%@groups.each do |group|%>
+    <% if group.name.slice(3, 1) == '3' %>
+          <li>
+            <button class='ui-list'><%= link_to  group.name , group %></button>
+          </li>
+      <%end %>
+    <%end%>
+    </ul>
+  </div>
+   <div class='year4'>
+    <h3>4 курс:</h3>
+  <ul class='group-list'>
+    <%@groups.each do |group|%>
+    <% if group.name.slice(3, 1) == '4' %>
+          <li>
+            <button class='ui-list'><%= link_to  group.name , group %></button>
+          </li>
+    <%end %>
+  <%end%>
   </ul>
-
-
+  </div>
+  </div>
 </div>

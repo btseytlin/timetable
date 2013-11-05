@@ -3,7 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container {
-  text-align:center;
+  width:700px;
+  margin:auto;
+  margin-top:5px;
+  padding:5px;
+   -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  background:#EEE;
+  
+}
+.wrap {
+   position:relative;
+   left:13%;
+}
+.container-edit {
+  min-width:700px;
+  max-width:1000px;
+  margin:auto;
+  margin-top:5px;
+  
 }
 .container > div{
   
@@ -11,7 +30,7 @@
   text-align:left;
 }
 .days {
-  max-width:1200px;
+  max-width:950px;
   margin:auto;
   text-align:center;
 }
@@ -28,6 +47,7 @@
   overflow:hidden;
   
 }
+
 h2 {
   text-align:center;
 }
@@ -63,3 +83,88 @@ h2 {
 .head {
  text-align:center; 
 }
+.group-list {
+    width:100px;
+}
+.group-list li {
+   margin-bottom:10px; 
+}
+.year1, .year2, .year3, .year4 {
+  display:block;
+  height:300px;
+  width:24%;
+  float:left; 
+}
+
+.year4:after {
+   clear:both; 
+}
+@media (max-width: 1024px) {
+    .wrap {
+      left:7%;
+  }
+  .container {
+    max-width:500px;
+  }
+  .search-container {
+     right:0; 
+     width:160px;
+  }
+  .search-container  .form-ui {
+    width:50%;
+  }
+  .search-submit{
+   width:40%!important; 
+  }
+  .nav {
+    left:0;
+  }
+  .nav li {
+     padding:0 0px;
+     width:100px;
+  }
+}
+@media (max-width: 750px) {
+  .day-box {
+    max-width:400px;
+  }
+  .day-box td{
+    padding:0;
+    font-size:10pt;
+  }
+  .year1, .year2, .year3, .year4 {
+    width:49%;
+   
+  }
+  .container {
+     max-width:90%;
+   
+  }
+}
+@media (max-width: 400px) {
+  .year1, .year2, .year3, .year4 {
+     float:none;
+     width:100%;
+     text-align:center;
+  }
+  .day-box td{
+   
+    font-size:10pt;
+  }
+  .search-container {
+    width:49%;
+  }
+  .nav {
+    width:49%;
+  }
+  .nav li {
+    width:39%;
+  }
+  .nav li a {
+    padding-top:5px;
+    font-weight:bold;
+    font-size:10pt;  
+  }
+}
+
+

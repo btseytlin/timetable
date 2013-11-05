@@ -1,9 +1,12 @@
+<% content_for :title, 'Добавить группу'  %>
+<div class='container'>
 <%= form_for @group do |f| %>
-	<div class='field'>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
+	<div class='form-ui default'>
+	
+		<%= f.text_field :name, class:'form-input' %>
+
 	</div>
-	<div class="actions">
 		<%= f.submit "Submit!" %>
-	</div>
+	
 <%end%>
+</div>
