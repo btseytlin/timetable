@@ -1,8 +1,10 @@
 class GroupsController < ApplicationController
+  before_filter :check_access, :only =>[:destroy, :edit, :update, :new, :create]
+  def check_access
+    redirect_to :root if !admin
+  end
 	def index
 		@groups = Group.all
-    
-     
   end
 	
 	def new
@@ -13,8 +15,9 @@ class GroupsController < ApplicationController
 		
 	end
 	def edit
-    #redirect_to :root if !admin
-		@group = Group.find(params[:id])
+
+		  @group = Group.find(params[:id])
+    
 	end
 	def create
     
@@ -25,6 +28,7 @@ class GroupsController < ApplicationController
 	end
   
   def destroy
+    
 		@group = Group.find(params[:id])
 		
 		respond_to do |format|

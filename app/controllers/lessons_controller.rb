@@ -1,5 +1,10 @@
 class LessonsController < ApplicationController
 	before_filter :get_group, :only => [:create, :update, :destroy, :show]
+  before_filter :check_access, :only =>[:destroy, :update, :new, :create]
+  
+  def check_access
+    redirect_to :root if !admin
+  end
 	def get_group 
 		@group = Group.find(params[:group_id])
 	end
