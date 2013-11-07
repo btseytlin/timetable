@@ -13,9 +13,13 @@
 </head>
 <body>
   <div class='top-panel'>
+    
     <ul class='nav'>
       <li><%= link_to 'На главную',:root %></li>
-      <li><%= link_to 'О проекте',:root %></li>
+      <li><%= link_to 'О пректе',:root %></li>
+      <% if current_user %>
+       <li><%= current_user.email %></li>
+      <% end %>
     </ul>
     <div class='search-container'>
         <%= form_tag('/search', method: "get", remote: true) do %>

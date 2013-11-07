@@ -3,9 +3,16 @@ Timetable::Application.routes.draw do
 	resources :groups do
 		resources :lessons
 	end
+  resources :users
+  resources :sessions
 	root :to => 'groups#index'
   match 'search' => 'search#search'
 	
+  match 'register' => 'Users#new'
+  
+  match 'login' => 'Sessions#new'
+  
+  match 'logout' => 'Sessions#destroy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

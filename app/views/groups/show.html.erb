@@ -30,5 +30,12 @@
   </div>
 	<%end%>
 <br/>
+  <% if admin %>
+   <div class='center'>
+      
+        <button class='ui-link high'><%= link_to  'Редактировать групппу', edit_group_path(@group)%></button>
+        
+    </div>
+  <% end %>
   <button class='ui-link'><%= link_to 'Назад ', :root %></button>
 </div>
