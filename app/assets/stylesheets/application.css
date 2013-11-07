@@ -18,8 +18,8 @@ body {
     margin:0;
 }
 a {
-   text-decoration:none;
-   color:black;
+ 
+   
 }
 ul {
    list-style:none; 
@@ -140,7 +140,7 @@ input[type='submit'] {
     max-height:500px;
     width:360px;
     position:absolute;
-    right:20.5%;
+    right:26%;
     top:10%;
     
     text-align:center;  
@@ -194,7 +194,10 @@ input[type='submit'] {
    top:0;
    height:40px;
 }
-
+.nav a,  button a{
+   text-decoration:none; 
+   color:black;
+}
 .nav {
     list-style:none; 
     margin:0;
@@ -202,8 +205,8 @@ input[type='submit'] {
     display:inline-block;
     padding:0;
     position:relative;
-   
-    left:24%;
+    
+    left:29%;
 }
 
 .nav li {
@@ -213,7 +216,7 @@ input[type='submit'] {
     padding:0 10px;
     margin:0;
     height:100%;
-    width:100px;
+ 
     text-align:center;
     vertical-align:middle;
   
@@ -245,4 +248,17 @@ input[type='submit'] {
 }
 .high {
    height:50px; 
+}
+
+.stretchy {
+   max-width:400px; 
+}
+input:focus {
+  
+}
+ button:hover {
+-webkit-box-shadow: 0px 1px 6px rgba(143, 145, 255, 0.41);
+-moz-box-shadow:    0px 1px 6px rgba(143, 145, 255, 0.41);
+box-shadow:         0px 1px 6px rgba(143, 145, 255, 0.41);
+
 }

@@ -85,6 +85,10 @@ h2 {
 }
 .group-list {
     width:100px;
+    padding-left:10px;
+}
+.group-list .btn-confirm{
+     width: 70px;
 }
 .group-list li {
    margin-bottom:10px; 
@@ -98,6 +102,15 @@ h2 {
 
 .year4:after {
    clear:both; 
+}
+@media (min-width: 1100px) and (max-width: 1300px) {
+   .search-container {
+     right:14%; 
+     
+  }
+    .nav {
+     left:18.3%; 
+  }
 }
 @media (max-width: 1024px) {
     .wrap {
@@ -121,7 +134,7 @@ h2 {
   }
   .nav li {
      padding:0 0px;
-     width:100px;
+     
   }
 }
 @media (max-width: 750px) {
@@ -165,6 +178,10 @@ h2 {
     font-weight:bold;
     font-size:10pt;  
   }
+}
+
+.year1 h3, .year2 h3, .year3 h3, .year4 h3{
+   width:70px; 
 }
 
 

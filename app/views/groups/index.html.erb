@@ -4,57 +4,22 @@
 
 <div class='container'>
   <div class='wrap'>
-    <div class='year1'>
-      <h3>1 курс:</h3>
+    <% @groups_by_course_number.each do |cnumber, groups| %>
+    <div class='year<%=cnumber%>'>
+      <h3><%=cnumber.to_s%> курс</h3>
       <ul class='group-list'>
-        <%@groups.each do |group|%>
-        <% if group.name.slice(3, 1) == '1' %>
-              <li id='<%= group.id %>'>
+       <%groups.each do |group|%>
+        <li id='<%= group.id %>'>
                 <button class='ui-list'><%= link_to  group.name , group %></button>
                 <% if admin %>
                   <div class='btn-con'><%= link_to 'Delete', group, remote: true, method: :delete%></div>
                 <% end %>
-              </li>
-        <%end %>
-      <%end%>
+         </li>
+       <% end %>
       </ul>
     </div>
-    <div class='year2'>
-    <h3>2 курс:</h3>
-    <ul class='group-list'>
-      <%@groups.each do |group|%>
-      <% if group.name.slice(3, 1) == '2' %>
-            <li>
-              <button class='ui-list'><%= link_to  group.name , group %></button>
-            </li>
-      <%end %>
-      <%end%>
-      </ul>
-    </div>
-     <div class='year3'>
-      <h3>3 курс:</h3>
-      <ul class='group-list'>
-      <%@groups.each do |group|%>
-      <% if group.name.slice(3, 1) == '3' %>
-            <li>
-              <button class='ui-list'><%= link_to  group.name , group %></button>
-            </li>
-        <%end %>
-      <%end%>
-      </ul>
-    </div>
-     <div class='year4'>
-      <h3>4 курс:</h3>
-    <ul class='group-list'>
-      <%@groups.each do |group|%>
-      <% if group.name.slice(3, 1) == '4' %>
-            <li>
-              <button class='ui-list'><%= link_to  group.name , group %></button>
-            </li>
-      <%end %>
-    <%end%>
-    </ul>
-    </div>
+    <% end %>
+    
    
   </div>
     <% if admin %>
