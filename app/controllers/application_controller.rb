@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     string.to_s.slice(0, 3)
   end
   def admin
+   if User.all.empty?
+     return true
+   end
+    
    if current_user 
       return true
     end

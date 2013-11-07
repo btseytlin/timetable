@@ -5,6 +5,8 @@ class GroupsController < ApplicationController
   end
 	def index
 		@groups = Group.all
+    
+    @groups_by_course_number = @groups.group_by { |group| group.name[3] }
   end
 	
 	def new
