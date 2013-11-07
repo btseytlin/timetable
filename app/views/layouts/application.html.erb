@@ -16,7 +16,7 @@
     
     <ul class='nav'>
       <li><%= link_to 'На главную',:root %></li>
-      <li><%= link_to 'О пректе',:root %></li>
+      <li><%= link_to 'О проекте', '/about'%></li>
       <% if current_user %>
        <li><%= current_user.email %></li>
       <% end %>

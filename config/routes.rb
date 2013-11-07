@@ -6,6 +6,8 @@ Timetable::Application.routes.draw do
   resources :users
   resources :sessions
 	root :to => 'groups#index'
+  
+  match 'about' => 'about#show'
   match 'search' => 'search#search'
 	
   match 'register' => 'Users#new'
