@@ -15,6 +15,9 @@ Timetable::Application.routes.draw do
   match 'login' => 'Sessions#new'
   
   match 'logout' => 'Sessions#destroy'
+  
+  match 'googleb7843ade09e8d5fe.html', 
+      :to => proc { |env| [200, {}, ["google-site-verification: googleb7843ade09e8d5fe.html"]] }
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
