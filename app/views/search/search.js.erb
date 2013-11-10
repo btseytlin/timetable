@@ -1,0 +1,17 @@
+$('.search-results').empty()
+<% if @results.count > 0 %>
+  $('.search-results').append('<tr class="head"><td>День</td><td>Время</td><td>Ауд</td><td>Предмет</td><td>Препод</td><td>Группа</td></tr>')
+  <% @results.each do |result| %>
+    $('.search-results').append(['<tr>',
+      '<td><%= shorten result.day %></td>',
+      '<td><%= parsetime result.time %></td>',
+      '<td><%= result.room %></td>',
+      '<td><%= result.subject %> </td>',
+      '<td><%= result.teacher %> </td>',
+      '<td><%= result.group.name %></td>',
+    '</tr>'].join('\n'))
+  <% end %>
+<% else %>
+$('.search-results').append('<tr><td>Ничего не найдено</td></tr>')
+    
+<% end %>

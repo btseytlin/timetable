@@ -1,0 +1,15 @@
+<% content_for :title, 'Поиск' %>
+<div class='container'>
+<ul>
+<% @results.each do |result| %>
+	<li>
+		<%= parsetime result.time %>
+		<%= result.day %> 
+		<%= result.room %> 
+		<%= result.subject %> 
+		<%= result.teacher %> 
+		<%= result.group.name %>
+	</li>
+<% end %>
+</ul>
+</div>

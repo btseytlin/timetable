@@ -1,0 +1,26 @@
+<% content_for :title, 'Войти'  %>
+<div class='container'>
+  <div class='acc-wrap'>
+  <%= form_tag sessions_path do  %>
+      <%= label_tag :email %>
+      <br/>
+      <div class='form-ui email'>
+        
+        <%= text_field_tag :email, params[:email],class:'form-input', data:{format: 'email'} %>
+      </div>
+      <br/>
+      <%= label_tag :password %>
+      <br/>
+      <div class='form-ui default'>
+        
+        <%= password_field_tag :password, params[:password],class:'form-input' %>
+      </div>
+      <br/>
+    
+        <%= submit_tag "Войти!" %>
+      
+  <% end %>
+  <br/>
+ <button class='ui-link'><%= link_to 'Назад' , :back %></button>
+  </div>
+</div>
