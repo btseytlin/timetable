@@ -16,7 +16,7 @@
                     <td>Предмет</td>
                     <td>Преподаватель</td>
                 </tr>
-                <% @day_array = @group.lessons.find_all{|lesson| lesson.day.include?(day)} %>
+      <% @day_array = @group.lessons.find_all{|lesson| lesson.day.include?(day)}.sort_by!{|lesson| lesson.time} %>
                 <% @day_array.each do |lesson| %>
                   <tr>
                     <td><%= parsetime lesson.time%></td>	
