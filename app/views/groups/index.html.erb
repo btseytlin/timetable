@@ -5,7 +5,7 @@
 <div class='container'>
   <div class='wrap'>
     <% @groups_by_course_number.each do |cnumber, groups| %>
-    <div class='year<%=cnumber%>'>
+    <div class='year'>
       <h3><%=cnumber.to_s%> курс</h3>
       <ul class='group-list'>
        <%groups.each do |group|%>
