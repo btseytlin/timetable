@@ -70,7 +70,7 @@ h2 {
 }
 .day-box tr, .day-box td {
   padding:4px;
-  border-bottom:1px solid #155688;
+  border:1px solid #155688;
   
 }
 .day-box .head,.day-box .head td  {
@@ -104,7 +104,9 @@ h2 {
    clear:both; 
 }
 @media (min-width: 1024px)  {
-
+  body {
+     width:100%; 
+  }
   .day-box {
     max-width:450px;
   }
@@ -113,6 +115,9 @@ h2 {
   }
 }
 @media (max-width: 1024px) {
+   body {
+     width:100%; 
+  }
     .wrap {
       left:7%;
   }
@@ -139,6 +144,9 @@ h2 {
   }
 }
 @media (max-width: 750px) {
+  body {
+     width:100%; 
+  }
   .day-box {
     max-width:400px;
   }
@@ -157,6 +165,9 @@ h2 {
   }
 }
 @media (max-width: 400px) {
+  body {
+     width:100%; 
+  }
   .year1, .year2, .year3, .year4 {
      float:none;
      width:100%;
