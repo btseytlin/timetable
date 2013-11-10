@@ -1,17 +1,21 @@
 class SearchController < ApplicationController
 
   def search
-	
-		@request = params[:search].strip
-   
-    @results = @request.size > 1 ? get_results(@request) : []
+    if params[:search] 
+      @request = params[:search].strip
+     
+      @results = @request.size > 1 ? get_results(@request) : []
+    else 
+      @results = []
+    end
+ 
+      respond_to do |format|
+        
+          format.html 
+          format.js 
+        
+      end
     
-    respond_to do |format|
-			
-				format.html 
-				format.js 
-			
-		end
 	end
 	
   def get_results(string)
