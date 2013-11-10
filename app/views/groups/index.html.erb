@@ -10,7 +10,7 @@
       <ul class='group-list'>
        <%groups.each do |group|%>
         <li id='<%= group.id %>'>
-                <button class='ui-list'><%= link_to  group.name , group %></button>
+          <%= link_to  group.name , group, class: 'ui-list' %>
                 <% if admin %>
                   <div class='btn-con'><%= link_to 'Delete', group, remote: true, method: :delete%></div>
                 <% end %>
@@ -25,8 +25,8 @@
     <% if admin %>
    <div class='center'>
       
-        <button class='ui-link high'><%= link_to  'Добавить групппу', 'groups/new' %></button>
-        <button class='ui-link high'><%= link_to  'Добавить пользователя', 'register' %></button>
+     <%= link_to  'Добавить групппу', 'groups/new', class:'ui-link high' %>
+     <%= link_to  'Добавить пользователя', 'register', class:'ui-link high' %>
       
     </div>
   <% end %>

@@ -59,6 +59,13 @@ input:focus, button {
 button {
     border:1px solid #B7B7B7;
 }
+.ui-link {
+   display:inline-block; 
+   color:black;
+   text-decoration:none;
+   vertical-align:middle;
+   padding-top:10px;
+}
 .btn-done, .btn-war, .btn-warning, .btn-con, .btn-confirm, btn, input[type='submit'], .form-message, .ui-link, .ui-list  {
     font-family:Arial;
     background: #EEE;
@@ -72,9 +79,13 @@ button {
     border-radius: 10px;
   
 }
+
 .ui-list {
     width: 90px;
     height: 28px;
+    padding: 3px;
+    text-decoration:none;
+    color:black;
     border: 1px solid #B7B7B7;
     background: #DDF6F8;
 }

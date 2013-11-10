@@ -33,9 +33,9 @@
   <% if admin %>
    <div class='center'>
       
-        <button class='ui-link high'><%= link_to  'Редактировать групппу', edit_group_path(@group)%></button>
+        <%= link_to  'Редактировать групппу', edit_group_path(@group), class:'ui-link high'%>
         
     </div>
   <% end %>
-  <button class='ui-link'><%= link_to 'Назад ', :root %></button>
+  <%= link_to 'Назад ', :root, class:'ui-link' %>
 </div>
