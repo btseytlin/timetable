@@ -14,7 +14,8 @@
 }
 .wrap {
    position:relative;
-   left:13%;
+   width:90%;
+   left:7%;
  }
 .container-edit {
   min-width:700px;
@@ -92,14 +93,14 @@ h2 {
 .group-list li {
    margin-bottom:10px; 
 }
-.year1, .year2, .year3, .year4 {
+.year{
   display:block;
  
-  width:24%;
+  width:120px;
   float:left; 
 }
 
-.year4:after {
+.year:after {
    clear:both; 
 }
 @media (min-width: 1024px)  {
@@ -154,7 +155,7 @@ h2 {
     padding:0;
     font-size:10pt;
   }
-  .year1, .year2, .year3, .year4 {
+  .year {
     width:49%;
    
   }
@@ -167,7 +168,7 @@ h2 {
   body {
      width:100%; 
   }
-  .year1, .year2, .year3, .year4 {
+  .year {
      float:none;
      width:100%;
      text-align:center;
@@ -195,7 +196,7 @@ h2 {
   }
 }
 
-.year1 h3, .year2 h3, .year3 h3, .year4 h3{
+.year h3 {
    width:70px; 
 }
 
