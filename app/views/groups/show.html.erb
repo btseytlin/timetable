@@ -3,20 +3,21 @@
 <% content_for :metawords, @group.name + ', занятия, электронное расписание, веб расписание' %>
 
 <% @days = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"] %>
-<div class='days'>
-  <h2><%= @group.name %></h2>
+<div class='center'>
+<h2><%= @group.name %></h2>
+<div class='days upper'>
+  <h3>Верхняя неделя</h3>
 	<% @days.each do |day|%>
   <div id='<%=day%>' class='day-box'>
    <h3><%=day%></h3>
     <table>
                 <tr class='head'>
                     <td>Время</td>	
- 
                     <td>Аудитория</td>
                     <td>Предмет</td>
                     <td>Преподаватель</td>
                 </tr>
-      <% @day_array = @group.lessons.find_all{|lesson| lesson.day.include?(day)}.sort_by!{|lesson| lesson.time} %>
+          <% @day_array = @group.lessons.find_all{|lesson| lesson.day.include?(day) and !lesson.lowerweek}.sort_by!{|lesson| lesson.time} %>
                 <% @day_array.each do |lesson| %>
                   <tr>
                     <td><%= parsetime lesson.time%></td>	
@@ -30,12 +31,44 @@
   </div>
 	<%end%>
 <br/>
+  
+</div>
+<div class='days lower'>
+  <h3>Нижняя неделя</h3>
+  <% @days.each do |day|%>
+  <div id='<%=day%>' class='day-box'>
+   <h3><%=day%></h3>
+    <table>
+                <tr class='head'>
+                    <td>Время</td>	
+                    <td>Аудитория</td>
+                    <td>Предмет</td>
+                    <td>Преподаватель</td>
+                </tr>
+          <% @day_array = @group.lessons.find_all{|lesson| lesson.day.include?(day) and lesson.lowerweek}.sort_by!{|lesson| lesson.time} %>
+                <% @day_array.each do |lesson| %>
+                  <tr>
+                    <td><%= parsetime lesson.time%></td>	
+                    <td><%= lesson.room %></td>
+                    <td><%= lesson.subject %></td>
+                    <td><%= lesson.teacher %></td>
+                    
+                  </tr>
+                <%end%>
+    </table>
+  </div>
+	<%end%>
+<br/>
+</div>
+
+<div class='center'>
   <% if admin %>
-   <div class='center'>
+   
       
         <%= link_to  'Редактировать групппу', edit_group_path(@group), class:'ui-link high'%>
         
-    </div>
+   
   <% end %>
   <%= link_to 'Назад ', :root, class:'ui-link' %>
+  </div>
 </div>

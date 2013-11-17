@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20131107102534) do
     t.string   "subject"
     t.string   "day"
     t.integer  "group_id"
+    t.boolean  "lowerweek"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

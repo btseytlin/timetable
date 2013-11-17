@@ -10,7 +10,7 @@
       <td>Subject</td>
       <td>Teacher</td>
       <td>Room</td>
-  
+      <td>Lower week</td>
     </tr>
     <% @group.lessons.each do |lesson| %>
       
@@ -21,6 +21,7 @@
           <td><div class='form-ui default'><%= f.text_field :subject, class:'form-input' %></div></td>
           <td><div class='form-ui default'><%= f.text_field :teacher, class:'form-input' %></div></td>
           <td><div class='form-ui default'><%= f.text_field :room, class:'form-input' %></div></td>
+          <td><%= f.check_box :lowerweek, {:class => "myclass", :style => "mystyle"}, true, false %> </td>
           <td><%= f.submit 'Update'%></td>
           <td><div class='btn-con'><%= link_to 'Delete', [lesson.group, lesson], remote: true, method: :delete%></div></td>
         </tr>
@@ -35,7 +36,7 @@
         <td><div class='form-ui default'><%= f.text_field :subject,class:'form-input' %></div></td>
         <td><div class='form-ui default'><%= f.text_field :teacher,class:'form-input' %></div></td>
         <td><div class='form-ui default'><%= f.text_field :room,class:'form-input' %></div></td>
-          
+        <td><%= f.check_box :lowerweek, {:class => "myclass", :style => "mystyle"}, true, false %> </td>
         <td><%= f.submit 'Add new lesson' %></td>
       <%end%>
     </tr>

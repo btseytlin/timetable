@@ -7,6 +7,7 @@ class CreateLessons < ActiveRecord::Migration
       t.string :subject
       t.string :day
       t.references :group
+      t.boolean :lowerweek
 
       t.timestamps
     end
