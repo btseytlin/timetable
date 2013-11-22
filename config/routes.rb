@@ -7,6 +7,8 @@ Timetable::Application.routes.draw do
   resources :sessions
 	root :to => 'groups#index'
   
+  match 'groups/:id/copy/:name' => 'groups#copy'
+  
   match 'about' => 'about#show'
   match 'search' => 'search#search'
 	

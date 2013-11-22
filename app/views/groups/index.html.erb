@@ -13,6 +13,7 @@
           <%= link_to  group.name , group, class: 'ui-list' %>
                 <% if admin %>
                   <div class='btn-con'><%= link_to 'Delete', group, remote: true, method: :delete%></div>
+          <div class='btn-con'><%= link_to 'Copy', 'groups/'+group.id.to_s+'/copy/'+(group.name.slice(0..4) + (group.name.slice(5, 1).to_i + 1).to_s + group.name.slice(6, 1)).to_s, method: :copy%></div>
                 <% end %>
          </li>
        <% end %>

@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_filter :check_access, :only =>[:destroy, :edit, :update, :new, :create]
+  before_filter :check_access, :only =>[:destroy, :edit, :update, :new, :create, :copy]
   def check_access
     redirect_to :root if !admin
   end
@@ -27,6 +27,17 @@ class GroupsController < ApplicationController
 		
 		@group.save
 		redirect_to :root
+	end
+  def copy
+    
+		@group = Group.find(params[:id])
+    @newgroup = @group.dup(:include => :lessons)
+    @newgroup.name = params[:name]
+    if @newgroup.save 
+      redirect_to @newgroup
+    else
+      redirect_to :root
+    end
 	end
   
   def destroy
