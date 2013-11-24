@@ -23,6 +23,6 @@ production:
   adapter:  postgresql
   encoding: utf8
   database: prod-db
-  pool: 5
-  timeout: 5000
+ # pool: 5
+ # timeout: 5000
  # socket: /tmp/mysql.sock
